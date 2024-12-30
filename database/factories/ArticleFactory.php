@@ -19,8 +19,8 @@ class ArticleFactory extends Factory
     {
         return [
             'user_id' => User::query()->inRandomOrder()->first()?->id ?? User::factory()->create()->id,
-            'title' => $this->faker->text(50),
-            'content' => $this->faker->text(500),
+            'title' => $this->faker->realText(50),
+            'content' => $this->faker->realText(200),
         ];
     }
 }
