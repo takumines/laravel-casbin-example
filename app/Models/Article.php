@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $content
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ * @property User $user
+ * @property Comment[] $comments
  */
 class Article extends Model
 {

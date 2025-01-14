@@ -21,6 +21,8 @@ use Illuminate\Notifications\Notifiable;
  * @property string|null $remember_token
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ * @property Article[] $articles
+ * @property Comment[] $comments
  */
 class User extends Authenticatable
 {

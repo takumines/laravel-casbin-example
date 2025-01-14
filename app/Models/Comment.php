@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $content
  * @property string $created_at
  * @property string $updated_at
+ * @property User $user
+ * @property Article $article
  */
 class Comment extends Model
 {
