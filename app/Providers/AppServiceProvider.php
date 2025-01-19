@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\casbin\CasbinRoleBasedAuthorizationService;
+use App\Services\RoleBasedAuthorizerInterface;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(
+            RoleBasedAuthorizerInterface::class,
+            CasbinRoleBasedAuthorizationService::class
+        );
     }
 
     /**
