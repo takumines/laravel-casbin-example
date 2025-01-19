@@ -1,0 +1,28 @@
+# ロール継承
+g, EDITOR, ADMIN
+g, VIEWER, EDITOR
+
+# 記事関連のルール（ADMINに包括的な権限を付与）
+p, ADMIN, api/articles, POST
+p, ADMIN, api/articles/{article_id}, PUT
+p, ADMIN, api/articles/{article_id}, DELETE
+
+# コメント関連のルール
+p, ADMIN, api/articles/{article_id}/comments, POST
+p, ADMIN, api/articles/{article_id}/comments/{comment_id}, DELETE
+
+# ユーザー関連のルール
+p, ADMIN, api/users, GET
+p, ADMIN, api/users/{user_id}, GET
+p, ADMIN, api/users/{user_id}, DELETE
+
+# EDITORの追加権限（ADMINから継承されないもの）
+p, EDITOR, api/articles, POST
+p, EDITOR, api/articles/{article_id}, PUT
+p, EDITOR, api/articles/{article_id}, DELETE
+p, EDITOR, api/articles/{article_id}/comments, POST
+p, EDITOR, api/articles/{article_id}/comments/{comment_id}, DELETE
+
+# VIEWERの追加権限（EDITORから継承されないもの）
+p, VIEWER, api/users, GET
+p, VIEWER, api/users/{user_id}, GET
