@@ -19,7 +19,7 @@ Route::get('/articles', ArticleIndexController::class)
 Route::get('/articles/{article_id}', ArticleShowController::class)
     ->name('articles.show');
 
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum', 'role.authz'])->group(function () {
     // 記事作成
     Route::post('/articles', ArticleStoreController::class)
         ->name('articles.store');
